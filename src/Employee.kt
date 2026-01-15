@@ -34,7 +34,7 @@ class Employee(
     }
     fun assignTask(newTask: Task){
         val c = currentTask
-        if (c != null && c.isCompleted){
+        if (c != null && !c.isCompleted){
             println("Сотрудник уже занят задачей ${c.title}")
         }else{
             currentTask = newTask
@@ -44,7 +44,7 @@ class Employee(
 }
 fun main() {
     val employee = Employee("Telyatnikova Elizaveta Petrovna","Manager",20000,30)
-    val task1 = Task("Homework","Do some works",Priority.medium,true)
+    val task1 = Task("Homework","Do some works",Priority.medium)
     val task2 = Task("Play computer games","Play CS, Dota 2",Priority.low)
     println("Данные сотрудника:")
     println("ФИО: ${employee.fullName}")
