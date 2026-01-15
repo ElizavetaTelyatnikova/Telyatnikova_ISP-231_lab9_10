@@ -3,7 +3,7 @@ class Employee(
     position: String,
     salary: Int,
     yearsOfExperience: Int
-) {
+): ReportGenerator {
     var fullName: String = fullName
         get() = field
     var position: String = position
@@ -27,6 +27,10 @@ class Employee(
                 field = value
             }
         }
+
+    override fun generateReport(): String {
+        return "=== Данные о сотруднике ===\n ФИО: $fullName\n Должность: $position\n Зарплата: $salary\n Опыт работы: $yearsOfExperience"
+    }
 }
 fun main() {
     val employee = Employee("Telyatnikova Elizaveta Petrovna","Manager",20000,30)

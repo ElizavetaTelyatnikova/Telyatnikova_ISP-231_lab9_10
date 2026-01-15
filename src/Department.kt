@@ -2,12 +2,14 @@ abstract class Department {
     abstract val departmentName: String
     abstract fun  printDepartmentGoal()
 }
-class DevelopmentDepartment:Department(){
+class DevelopmentDepartment:Department(), ReportGenerator{
     override val departmentName: String = "Разработка"
     override fun printDepartmentGoal() {
         println("Писать чистый код")
     }
-
+    override fun generateReport(): String {
+        return "=== Информация об отделе ===\n Название отдела: $departmentName\n Его цель: писать чистый код"
+    }
 }
 class TestingDepartment: Department(){
     override val departmentName: String = "Тестирование"
@@ -15,7 +17,6 @@ class TestingDepartment: Department(){
         println("Находить все баги")
     }
 }
-
 fun main() {
     val developmentDepartment = DevelopmentDepartment()
     val testingDepartment = TestingDepartment()
